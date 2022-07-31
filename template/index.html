@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Home</title>
+	<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='style.css') }}">
+	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+</head>
+<body>
+
+	<header class="p-3 bg-dark text-white">
+		<div class="container1">
+		  <div class="d-flex flex-wrap align-items-center justify-content-center justify-content-lg-start">
+			<a href="/" class="d-flex align-items-center mb-2 mb-lg-0 text-white text-decoration-none">
+			  <svg class="bi me-2" width="40" height="32" role="img" aria-label="Bootstrap"><use xlink:href="#bootstrap"></use></svg>
+
+				<h3 style="position:absolute; left:10px">MBTI Personality Classifier</h3>
+			</a>
+		  </div>
+		</div>
+	  </header>
+	 <section id="hero" class="d-flex align-items-center">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-6 pt-5 pt-lg-0 order-2 order-lg-1 d-flex flex-column justify-content-center">
+                    <h1>Myers-Briggs Type Indicator</h1>
+                    <br>
+                    <h2>Get Your Personality Type by Writing a Passage about yourself.</h2>
+                </div>
+                <div class="col-lg-6 order-1 order-lg-2 ">
+                    <form action="{{ url_for('predict')}}" method="POST">
+                        <textarea name="text" type="text" class="form-control" id="example4" placeholder="Paste a sample of your writing with more than 150 characters..." rows=10 cols=150 minlength="150"></textarea>
+                        <br>
+                        <input type="submit" class="btn btn-get-started scrollto" value="Predict">
+                    </form>
+                </div>
+            </div>
+        </div>
+  	</section>
+
+	<section id="output" class="d-flex align-items-center">
+    	<div class="container">
+        	<div class="row">
+            	<div class="col-lg-6 pt-5 pt-lg-0 d-flex flex-column justify-content-center">
+                	<h3><b>So what's your MBTI?</b></h3>
+                	<h3>Your personality type is: </h3>
+				</div>
+				<div class="col-lg-6 pt-5 pt-lg-0 d-flex flex-column justify-content-center">
+               	 	<h4 class=outputUser style="font-size: 50px;">{{ prediction_text }}</h4>
+            	</div>
+        	</div>
+    	</div>
+  	</section>
+</body>
