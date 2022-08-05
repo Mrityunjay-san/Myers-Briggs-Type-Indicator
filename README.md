@@ -1,1 +1,1 @@
-#Myers-Briggs Type Indicator
+# Myers-Briggs Type Indicator
